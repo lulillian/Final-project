@@ -89,5 +89,5 @@ def ticker_news(TICKER:str):
         # print(article_link)
         links.append(article_link)
     return links
-print(ticker_news('tsla'))
+# print(ticker_news('tsla'))
 
