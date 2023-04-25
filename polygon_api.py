@@ -91,3 +91,20 @@ def ticker_news(TICKER:str):
     return links
 # print(ticker_news('tsla'))
 
+
+
+def balance_sheet(TICKER:str):
+    """Returns balance sheet info of a company given its ticker."""
+    TICKER=TICKER.upper()
+    url=f'https://api.polygon.io/vX/reference/financials?ticker={TICKER}&apiKey={APIKEY}'
+    data=get_json(url)
+    # print(data)
+    balance_sheet=data['results'][0]['financials']['current_assets']#i am trying to get current liabilites, non current liabilites, current assets, noncurrent assets, and it is not workiung 
+
+
+
+    print(balance_sheet)
+
+
+
+balance_sheet('AAPL')
