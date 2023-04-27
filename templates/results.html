@@ -17,10 +17,22 @@
 </head>
 
 <body>
-    <p class="stop">Openning Price: {{openning_price_html}}  </p>
-    <p class="temp">The current temperature at {{you}} in {{city}} is {{temp_far}} fahrenheit. </p>
-    
-    
+    <h1> {{info[3]}} </h1>
+    <p>Company Description: {{info[0]}}</p>
+    <p>Home Page: <a href={{info[2]}}>{{info[2]}}</a></p>
+
+    <p class="stop">Opening Price: {{values[0]}}  </p>
+    <p class="stop">Closing Price: {{values[1]}}  </p>
+    <p class="stop">Change: {{values[2]}} %  </p>
+    <h3>Recent News</h3>
+    <ul>
+      {% for link in news %}
+        <li><a href={{link}}}>{{link}}</a></li>
+      {% endfor %}
+    </ul>
+    <p></p>
+    <h1>The calculated book value of this stock is: $ {{balance}}</h1>
+    <button>Add to Portfolio</button>
 </body>
 
 </html>

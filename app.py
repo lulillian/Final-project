@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from polygon_api import get_daily_open_close, get_open
+from polygon_api import get_daily_open_close, get_company_info, ticker_news, balance_sheet
 
 
 app = Flask(__name__)
@@ -16,11 +16,13 @@ def origin():
 @app.post('/form')
 def results():
     stock_ticker=request.form['stock_ticker']
-    openning_price=get_open(stock_ticker)
-    return render_template('results.html',openning_price_html=openning_price)
+    values=get_daily_open_close(stock_ticker)
+    info=get_company_info(stock_ticker)
+    news = ticker_news(stock_ticker)
+    balance = balance_sheet(stock_ticker)
+    return render_template('results.html',values=values,info=info,news=news,balance=balance)
 
-
-
+# @app.get()
 
 
 if __name__ == '__main__':
