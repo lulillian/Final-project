@@ -54,8 +54,18 @@ def get_daily_open_close(TICKER:str):
     change_rounded=round(change,2)
     print(f'The openning price of {TICKER} is {open}, and the market closed at {close}, changing {change_rounded} %.')
 
+def get_open(TICKER:str):
+    """
+    Returns the price of a given ticker.
+    """
+    TICKER=TICKER.upper()
+    url=f'https://api.polygon.io/v1/open-close/{TICKER}/2023-01-09?adjusted=true&apiKey={APIKEY}'
+    data=get_json(url)
+    # print(data)
+    open=data['open']
+    print(open) 
 
-# get_daily_open_close('aapl')
+get_open('aapl')
 
 def get_company_info(TICKER:str):
     """
@@ -73,6 +83,19 @@ def get_company_info(TICKER:str):
     print(shares_outstanding)
 
 # get_company_info('hd')
+
+def get_shares_out(TICKER:str):
+    """
+    Given a company ticker,return basic info on the company.
+    """
+    TICKER=TICKER.upper()
+    url=f'https://api.polygon.io/v3/reference/tickers/{TICKER}?apiKey={APIKEY}'
+    data=get_json(url)
+    # print(data)
+    shares_outstanding=data['results']['share_class_shares_outstanding']
+    return shares_outstanding
+
+# print(get_shares_out('AAPL'))
 
 
 def ticker_news(TICKER:str):
@@ -99,12 +122,17 @@ def balance_sheet(TICKER:str):
     url=f'https://api.polygon.io/vX/reference/financials?ticker={TICKER}&apiKey={APIKEY}'
     data=get_json(url)
     # print(data)
-    balance_sheet=data['results'][0]['financials']['current_assets']#i am trying to get current liabilites, non current liabilites, current assets, noncurrent assets, and it is not workiung 
+    # noncurrent_liabilities=data['results'][0]['financials']['balance_sheet']['noncurrent_liabilities']['value']
+    # current_liabilities=data['results'][0]['financials']['balance_sheet']['current_liabilities']['value']
+    assets=float(data['results'][0]['financials']['balance_sheet']['assets']['value'])
+    liabilities=float(data['results'][0]['financials']['balance_sheet']['liabilities']['value'])
+    oustanding_stock=float(data['results'][0]['financials']['balance_sheet']['liabilities']['value'])
+    book_value=float(assets-liabilities)
+    print(book_value)
+    shares_outstanding=float(get_shares_out(TICKER))
+    book_value_shareprice=book_value/shares_outstanding
+    # print(book_value_shareprice)
 
 
 
-    print(balance_sheet)
-
-
-
-balance_sheet('AAPL')
+# balance_sheet('AAPL')
