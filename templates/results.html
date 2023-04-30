@@ -7,47 +7,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Info</title>
     <style>
-        .stop {
-            color: rgb(81, 59, 251);
-        }
-        .temp{
-            color: green
-        }
+       
         body{
-          background-color: black;
+          background-color: rgb(0, 0, 0);
         }
         h1{
           color:aqua;
+          text-align: center;
         }
-        p{
-          color:aquamarine;
+        h2{
+          color: aqua;
         }
+
+      table,
+      td,
+      th {
+        border: 3px solid rgb(211, 211, 211);
+        color:  rgb(227, 241, 152);
+        text-align: center;
+        
+      }
+      button{
+        margin-left: 50%;
+      }
+
+      a{
+        color: rgb(227, 241, 152);
+      }
+      a:hover{
+        color:rgb(94, 104, 217);
+      }
+
+
     </style>
 </head>
 
 <body>
 
+<h1>  {{info[3]}}  </h1>  
+
+
+
   <table>
+
     <tr>
-      <td>    {{info[3]}} 
+      <td>
+        <h2>
+          Company Description:
+
+        </h2>
+
+
+      </td>
+      <td>
+        {{info[0]}}
+
+      </td>
+
+
+    </tr>
+    <tr>
+      <td>
+        <h2>
+          Home Page:
+        </h2>
+       
+
+      </td>
+      <td>
+        <a href={{info[2]}}>{{info[2]}}</a>
       </td>
     </tr>
+    <tr>
+      <td>
+        <h2>
+          class="stop">Opening Price:
+
+        </h2>
+       
 
 
-  </table>
-    <p>Company Description: {{info[0]}}</p>
-    <p>Home Page: <a href={{info[2]}}>{{info[2]}}</a></p>
+      </td>
+      <td>
+        {{values[0]}} 
+      </td>
+    </tr>
+<tr>
+  <td>
+    <h2 class="stop">
+      Closing Price: 
 
-    <p class="stop">Opening Price: {{values[0]}}  </p>
-    <p class="stop">Closing Price: {{values[1]}}  </p>
-    <p class="stop">Change: {{values[2]}} %  </p>
-    <h3>Recent News</h3>
+    </h2>
+  
+
+
+  </td>
+  <td>
+    {{values[1]}}
+  </td>
+
+</tr>
+<tr>
+  <td>
+    <h2 class="stop">
+
+    Change
+
+  </td>
+  <td>
+
+    {{values[2]}} % 
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <h2>
+      Recent News
+
+    </h2>
+   
+
+
+  </td>
+
+  <td>
     <ul>
       {% for link in news %}
         <li><a href={{link}}}>{{link}}</a></li>
       {% endfor %}
     </ul>
     <p></p>
+
+  </td>
+</tr>
+
+
+  </table>
+
+
     <h1>The calculated book value of this stock is: $ {{balance}}</h1>
     
     <button onclick="window.location.href='/portfolio'" type="button">Add to Portfolio</button>

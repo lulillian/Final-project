@@ -8,10 +8,6 @@ def get_json(url:str):
     Given a properly formatted URL for a JSON web API request, return a Python JSON object containing the response to that request.
 
     """
-    # f=urllib.request.urlopen(url)
-    # response_text=f.read().decode('utf-8')
-    # response_data=json.loads(response_text)
-    # return (response_data)
     response = requests.get(url)
     data = response.json()
     return data
@@ -36,7 +32,7 @@ def get_daily_open_close(TICKER:str):
     print(f'The openning price of {TICKER} is {open}, and the market closed at {close}, changing {change_rounded} %.')
     return values
 
-print(get_daily_open_close('aapl'))
+# print(get_daily_open_close('aapl'))
 
 
 def get_company_info(TICKER:str):

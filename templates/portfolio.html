@@ -2,14 +2,49 @@
 <html>
   <head>
     <title>My Portfolio</title>
+    <style>
+
+      body{
+        background-color: black;
+      }
+
+    table,
+      td,
+      th{
+        border: 1px solid rgb(211, 211, 211);
+        color:  rgb(227, 241, 152);
+        margin-left: auto;
+        margin-right:auto;
+      }
+
+      h1{
+        color: aqua;
+        text-align: center;
+      }
+
+      button{
+        margin-left: 55%;
+
+      }
+
+    </style>
   </head>
   <body>
     <h1>My Portfolio</h1>
-    <ul>
-      {% for item in portfolio %}
-        <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
+    <table>
+      <tr>
+        <td>
+          <ul>
+            {% for item in portfolio %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+
+        </td>
+      </tr>
+
+    </table>
+   
     <button onclick="window.location.href='/'" type="button">Search Again</button>
   </body>
 </html>
