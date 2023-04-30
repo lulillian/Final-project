@@ -11,5 +11,5 @@ The website is very simple to use. User will be brought to the homepage where th
 
 
 
-Provide guidance to users regarding downloading, installation, and initial use of your software. Here is a collection of incredible READMEs that can help you get started. Here is a website that helps you create a README.
+
 
