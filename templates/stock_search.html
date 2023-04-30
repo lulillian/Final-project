@@ -8,18 +8,123 @@
     <title>Ticker Lookup</title>
     <style>
         form {
-            border: 1px solid gray;
+            border: 10px solid rgb(227, 241, 152);
             padding: 10px;
+            background-color: black;
+            text-align: center;
+            top: 500px;
         }
+
+
+
+
+      
+
+        label{
+
+            color: rgb(227, 241, 152)
+        }
+        
+        
+        marquee {
+        height: 50px;
+        line-height: 50px;
+        color: rgb(140, 228, 228);
+        top:16px;
+        }
+
+    span {
+        padding-right: 20px; /* adjust spacing between words */
+        display: inline-block;
+        white-space: nowrap;
+        animation: ticker 20s linear infinite;
+        background-color: black;
+        font-size: 50px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+
+        }
+
+    @keyframes ticker {
+        0% {
+            transform: translateX(0);
+            }
+        100% {
+            transform: translateX(-10%);
+            }
+        }
+
+        img{
+            
+            width:100%;
+            position: relative;
+            margin-right: 0;
+            margin-left: 0;
+            height:auto;
+        }
+        .container{
+            position: relative;
+            text-align: center;
+
+
+        }
+
+        .form_search{
+
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 900px;
+            /* max-width: 1000px; */
+
+     
+
+        }
+        body{
+            background-color: black;
+        }
+
 
     </style>
 </head>
 
 <body>
-    <form action="" method="post">
-        <label for="">Ticker Search <input type="text" name="stock_ticker"></label>
-        <button>Find Company </button>
-    </form>
+   
+
+    <div class="container">
+        <div class="header">
+            <marquee direction="'left">
+
+            <span>Welcome </span>
+            <span> To     </span>
+            <span> Portfolio</span>
+            <span>Pro!</span>
+ 
+        </marquee>
+        </div>
+
+        <img src="{{ url_for('static', filename='stock.jpg') }}" alt="stock_background" title="stock" >
+
+       <div class="form_search">
+
+        <form action="" method="post">
+            <label for="">Enter a Ticker: <input type="text" name="stock_ticker"></label>
+            <button>Find Company </button>
+        </form>
+
+
+       </div>
+
+       
+     
+    </div>
+   
+
+    
+
+   
 </body>
 
 </html>

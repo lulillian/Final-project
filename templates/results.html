@@ -13,11 +13,28 @@
         .temp{
             color: green
         }
+        body{
+          background-color: black;
+        }
+        h1{
+          color:aqua;
+        }
+        p{
+          color:aquamarine;
+        }
     </style>
 </head>
 
 <body>
-    <h1> {{info[3]}} </h1>
+
+  <table>
+    <tr>
+      <td>    {{info[3]}} 
+      </td>
+    </tr>
+
+
+  </table>
     <p>Company Description: {{info[0]}}</p>
     <p>Home Page: <a href={{info[2]}}>{{info[2]}}</a></p>
 
@@ -32,7 +49,9 @@
     </ul>
     <p></p>
     <h1>The calculated book value of this stock is: $ {{balance}}</h1>
-    <button>Add to Portfolio</button>
+    
+    <button onclick="window.location.href='/portfolio'" type="button">Add to Portfolio</button>
+    <button onclick="window.location.href='/'" type="button">Search Again</button>
 </body>
 
 </html>

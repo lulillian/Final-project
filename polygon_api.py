@@ -1,30 +1,7 @@
 import urllib.request
 import json 
 import requests
-# from twilio.rest import Client
-
-# account_sid = 'ACe80acc1f799264efa60d041e1a09f0a1'
-# auth_token = 'd1d68ae9a07296f59ab450a1eeb205d6'
-# client = Client(account_sid, auth_token)
-# # def send_message():
-# message = client.messages.create(
-#     body='Hello, World!',
-#     from_='+18449492451',
-#     to='+13477310296')
-    
-# print(message.sid)
-
-# # send_message()
-
-
-
-
-#URLS
-
-#APIKEYS
-APIKEY='4AWAZvbBUZLt_Yz8NpMMiKuUWbSqaUqe'
-
-
+from config import APIKEY
 
 def get_json(url:str):
     """
@@ -134,6 +111,4 @@ def balance_sheet(TICKER:str):
     return book_value_shareprice
     # print(book_value_shareprice)
 
-
-
-# balance_sheet('AAPL')
+        
